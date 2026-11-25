@@ -1,4 +1,3 @@
-
 # 🏓 Game Pong
 
 <div align="center">
@@ -7,9 +6,18 @@
 ![HTML5](https://img.shields.io/badge/HTML5-Structure-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
+![Status](https://img.shields.io/badge/Status-Em%20Evolução-orange?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
 **Uma recriação interativa do clássico Pong, desenvolvida com JavaScript puro.**
 
 Um projeto voltado à prática de lógica de programação, manipulação de elementos gráficos, detecção de colisões e interação com o usuário diretamente no navegador.
+
+<p>
+  <a href="https://gamepong-wheat.vercel.app/">
+    <img src="https://img.shields.io/badge/Jogar%20Online-Acessar%20Aplicação-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Jogar online">
+  </a>
+</p>
 
 </div>
 
@@ -30,6 +38,14 @@ A experiência é complementada por recursos sonoros, incluindo efeitos de colis
 Além de seu aspecto recreativo, o projeto representa uma oportunidade de consolidar conhecimentos de programação e desenvolvimento Front-End por meio da construção de uma aplicação funcional.
 
 </div>
+
+### 🚧 Estado atual do projeto
+
+O projeto está publicado e disponível para acesso, mas permanece em desenvolvimento evolutivo.
+
+Atualmente, **aguarda melhorias na interface gráfica e correções de bugs**, além de possíveis aprimoramentos na experiência de jogo. Contribuições voltadas à estabilidade, usabilidade e apresentação visual são especialmente bem-vindas.
+
+**Acesse a versão publicada:** https://gamepong-wheat.vercel.app/
 
 ## 🎮 Funcionalidades
 
@@ -69,9 +85,12 @@ O objetivo é impedir que a bolinha ultrapasse sua raquete, utilizando os movime
 | JavaScript (Vanilla) | Lógica, movimentação e colisões |
 | HTML5 | Estrutura da aplicação |
 | CSS3 | Estilização e apresentação visual |
+| p5.js | Recursos gráficos e execução do jogo |
+| p5.sound | Reprodução de áudio |
+| p5.collide2D | Detecção de colisões |
 | Áudio | Efeitos sonoros e música de fundo |
 
-O jogo usa p5.js, p5.sound e p5.collide2D, carregados por CDN. Não é necessário instalar dependências.
+O jogo utiliza p5.js, p5.sound e p5.collide2D, carregados por CDN. Não é necessário instalar dependências.
 
 ## 📁 Estrutura do projeto
 
@@ -128,6 +147,12 @@ O navegador precisa de conexão com a internet para carregar as bibliotecas p5.j
 Os efeitos sonoros são opcionais. Para habilitá-los, coloque `trilha.mp3`, `ponto.mp3` e `raquetada.mp3` na pasta `assets/`.
 
 Alternativamente, você pode utilizar a extensão **Live Server** no Visual Studio Code para executar o projeto em um servidor local.
+
+### 🌐 Aplicação publicada
+
+A versão disponibilizada na Vercel pode ser acessada pelo endereço:
+
+**https://gamepong-wheat.vercel.app/**
 
 ## 🎨 Personalização
 
@@ -235,8 +260,10 @@ Clique em **Create pull request** para enviar sua contribuição.
 
 ## 💡 Possibilidades de evolução
 
-Algumas funcionalidades que podem ser exploradas em versões futuras:
+O projeto permanece aberto a aprimoramentos. Algumas possibilidades de evolução incluem:
 
+- [ ] Melhorias na interface gráfica e na experiência do usuário.
+- [ ] Correção de bugs e aprimoramento da estabilidade.
 - [ ] Implementação de diferentes níveis de dificuldade.
 - [ ] Sistema de seleção de velocidade da bolinha.
 - [ ] Tela inicial com botão para iniciar a partida.
@@ -249,3 +276,13 @@ Algumas funcionalidades que podem ser exploradas em versões futuras:
 ## 📄 Licença
 
 Este projeto está sob a licença [MIT](LICENSE), que permite usar, modificar e distribuir o software, mantendo o aviso de copyright e a licença.
+
+---
+
+<div align="center">
+
+**Desenvolvido por [Jill Dias](https://github.com/jilldias)**
+
+[![GitHub](https://img.shields.io/badge/GitHub-jilldias-181717?style=flat-square&logo=github)](https://github.com/jilldias)
+
+</div>
