@@ -71,7 +71,18 @@ O objetivo é impedir que a bolinha ultrapasse sua raquete, utilizando os movime
 | CSS3 | Estilização e apresentação visual |
 | Áudio | Efeitos sonoros e música de fundo |
 
-O projeto não utiliza bibliotecas ou frameworks JavaScript externos.
+O jogo usa p5.js, p5.sound e p5.collide2D, carregados por CDN. Não é necessário instalar dependências.
+
+## 📁 Estrutura do projeto
+
+```text
+gamepong/
+├── assets/           # Arquivos de áudio opcionais
+├── src/
+│   └── codegame.js   # Lógica do jogo
+├── index.html        # Página inicial
+└── LICENSE           # Licença MIT
+```
 
 ## 🧠 Conceitos de programação aplicados
 
@@ -99,20 +110,22 @@ Entre os principais conceitos trabalhados:
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/jilldias/game-pong.git
+git clone https://github.com/jilldias/gamepong.git
 ```
 
 ### 2. Acesse o diretório
 
 ```bash
-cd game-pong
+cd gamepong
 ```
 
 ### 3. Execute o projeto
 
 Abra o arquivo `index.html` diretamente no navegador.
 
-Não é necessário instalar dependências ou configurar um servidor Back-End.
+O navegador precisa de conexão com a internet para carregar as bibliotecas p5.js usadas pelo jogo. Não é necessário instalar dependências ou configurar um servidor Back-End.
+
+Os efeitos sonoros são opcionais. Para habilitá-los, coloque `trilha.mp3`, `ponto.mp3` e `raquetada.mp3` na pasta `assets/`.
 
 Alternativamente, você pode utilizar a extensão **Live Server** no Visual Studio Code para executar o projeto em um servidor local.
 
@@ -149,19 +162,19 @@ Acesse o repositório original no GitHub e clique em **Fork** para criar uma có
 ### 2. Clone seu Fork
 
 ```bash
-git clone https://github.com/SEU-USUARIO/game-pong.git
+git clone https://github.com/SEU-USUARIO/gamepong.git
 ```
 
 Entre no diretório:
 
 ```bash
-cd game-pong
+cd gamepong
 ```
 
 ### 3. Configure o repositório original
 
 ```bash
-git remote add upstream https://github.com/jilldias/game-pong.git
+git remote add upstream https://github.com/jilldias/gamepong.git
 ```
 
 Verifique os repositórios remotos:
@@ -211,7 +224,7 @@ Acesse seu Fork no GitHub e selecione **Compare & pull request**.
 
 Configure o Pull Request da seguinte maneira:
 
-- **Base repository:** `jilldias/game-pong`
+- **Base repository:** `jilldias/gamepong`
 - **Base branch:** `main`
 - **Head repository:** seu Fork
 - **Compare branch:** sua branch de contribuição.
@@ -235,4 +248,4 @@ Algumas funcionalidades que podem ser exploradas em versões futuras:
 
 ## 📄 Licença
 
-Consulte o repositório para verificar os termos de utilização e distribuição do projeto. Caso deseje permitir a reutilização e modificação do código, considere adicionar uma licença de código aberto, como a MIT License.
+Este projeto está sob a licença [MIT](LICENSE), que permite usar, modificar e distribuir o software, mantendo o aviso de copyright e a licença.

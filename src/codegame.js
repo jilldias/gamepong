@@ -12,18 +12,20 @@ let raqueteAltura = 90;
 
 //variáveis da raquete
 let xRaquete = 5;
-let yRaquete = 150;
+let yRaquete = 160;
 
 //variáveis do oponente
 let xRaqueteOponente = 585;
-let yRaqueteOponente = 150;
+let yRaqueteOponente = 160;
 let velocidadeYOponente;
 
 let colidiu = false;
+let colidiuRaquete = false;
 
 //placar do jogo
 let meusPontos = 0;
 let pontosDoOponente = 0;
+const pontosParaVencer = 7;
 
 //sons do jogo
 let raquetada;
@@ -33,18 +35,15 @@ let trilha;
 //chance de errar
 let chanceDeErrar = 0;
 
-function preload(){
-  trilha = loadSound("trilha.mp3");
-  ponto = loadSound("ponto.mp3");
-  raquetada = loadSound("raquetada.mp3");
-}
-
 function setup() {
-  createCanvas(600, 400);
-  trilha.loop();
+  createCanvas(600, 400).parent("game");
+  trilha = loadSound("assets/trilha.mp3", som => som.loop());
+  ponto = loadSound("assets/ponto.mp3");
+  raquetada = loadSound("assets/raquetada.mp3");
 }
 
 function draw() {
+  colidiuRaquete = false;
   background(0);
   mostraBolinha();
   movimentaBolinha();
@@ -56,8 +55,8 @@ function draw() {
   mostraRaquete(xRaqueteOponente, yRaqueteOponente);
   movimentaRaqueteOponente();
   verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente);
-  incluiPlacar();
   marcaPonto();
+  incluiPlacar();
 }
 
 function mostraBolinha(){
@@ -102,16 +101,17 @@ function verificaColisaoRaquete(){
 
 function verificaColisaoRaquete(x, y){
   colidiu =
-  collideRectCircle(x, y, raqueteComprimento, raqueteAltura, xBolinha, yBolinha, raio);
+  collideRectCircle(x, y, raqueteComprimento, raqueteAltura, xBolinha, yBolinha, diametro);
   if (colidiu){
+    colidiuRaquete = true;
     velocidadeXBolinha *=-1
-    raquetada.play();
+    if (raquetada && raquetada.isLoaded()) raquetada.play();
   }
 }
 
 function movimentaRaqueteOponente(){
-  velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 30;
-  yRaqueteOponente += velocidadeYOponente
+  velocidadeYOponente = constrain(yBolinha - yRaqueteOponente - raqueteAltura / 2, -5, 5);
+  yRaqueteOponente += velocidadeYOponente;
   yRaqueteOponente = constrain(yRaqueteOponente, 0, 310)
   calculaChanceDeErrar()
 }
@@ -131,14 +131,39 @@ function incluiPlacar(){
 }
 
 function marcaPonto(){
-  if (xBolinha > 590){
+  if (xBolinha > 590 && !colidiuRaquete){
     meusPontos += 1;
-    ponto.play();
-  }
-  if (xBolinha < 10){
+    if (ponto && ponto.isLoaded()) ponto.play();
+    reiniciaBolinha();
+  } else if (xBolinha < 10 && !colidiuRaquete){
     pontosDoOponente += 1;
-    ponto.play();
+    if (ponto && ponto.isLoaded()) ponto.play();
+    reiniciaBolinha();
   }
+  if (meusPontos >= pontosParaVencer || pontosDoOponente >= pontosParaVencer){
+    encerraPartida();
+  }
+}
+
+function reiniciaBolinha(){
+  xBolinha = width / 2;
+  yBolinha = height / 2;
+}
+
+function encerraPartida(){
+  noLoop();
+  if (trilha && trilha.isLoaded()) trilha.stop();
+  push();
+  noStroke();
+  fill(0, 0, 0, 180);
+  rect(0, 0, width, height);
+  fill(255);
+  textAlign(CENTER, CENTER);
+  textSize(30);
+  text(meusPontos >= pontosParaVencer ? "Você venceu!" : "Oponente venceu!", width / 2, height / 2);
+  textSize(18);
+  text("Jogo encerrado", width / 2, height / 2 + 38);
+  pop();
 }
 
 function calculaChanceDeErrar(){
